@@ -1,3 +1,7 @@
 export default function Home() {
-  return <p>Admin Dashboard</p>;
+  return (
+    <>
+      <p>Admin Dashboard</p>
+    </>
+  );
 }
