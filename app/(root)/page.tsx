@@ -1,7 +1,16 @@
-export default function Home() {
+"use client";
+
+import { Modal } from "@/components/Modal";
+// import { UserButton } from "@clerk/nextjs";
+
+export default function SetupPage() {
   return (
-    <>
-      <p>Admin Dashboard</p>
-    </>
+    <div className="p-5">
+      {/* <UserButton afterSignOutUrl="/" /> */}
+      <Modal title="test" description="ha ha ha " isOpen onClose={() => {}}>
+        {" "}
+        Children
+      </Modal>
+    </div>
   );
 }
