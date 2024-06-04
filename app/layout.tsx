@@ -26,9 +26,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          {/* <SignedOut>
+          <SignedOut>
             <SignInButton />
-          </SignedOut> */}
+          </SignedOut>
           <ModalProvider />
           {children}
         </body>
