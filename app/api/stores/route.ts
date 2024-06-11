@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       return new NextResponse("Unautorized", { status: 401 });
     }
     if (!name) {
-      return new NextResponse("Nane is required", { status: 400 });
+      return new NextResponse("Name is required", { status: 400 });
     }
 
     const store = await prismadb.store.create({
