@@ -75,7 +75,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
             />
           </div>
         </form>
-        <Button>Save changes</Button>
+        <Button size="default">Save changes</Button>
       </Form>
     </>
   );
