@@ -5,14 +5,14 @@ import { store } from "@prisma/client";
 import { Trash } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
 import {
   Form,
   FormControl,
@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
+import { ApiAlert } from "@/components/Api-alert";
 
 interface SettingsFormProps {
   initialData: store;
@@ -58,12 +59,26 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
     }
   };
 
+  const onDelete = async () => {
+    try {
+      setLoading(true);
+      await axios.delete(`/api/stores/${params.storeId}`);
+      router.refresh();
+      router.push("/");
+      toast.success("Store deleted.");
+    } catch (error) {
+      toast.error("Make shure you removed all products and categories first");
+    } finally {
+      setLoading(false);
+      setOpen(false);
+    }
+  };
   return (
     <>
       <AlertModal
         isOpen={open}
         onClose={() => setOpen(false)}
-        onComfirm={() => {}}
+        onComfirm={onDelete}
         loading={loading}
       />
       <div className="flex items-center justify-between">
@@ -107,6 +122,12 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
+      <Separator />
+      <ApiAlert
+        title="NEXT_PUBLIC_API_URL"
+        description={`${origin}/api/${params.storeId}`}
+        variant="public"
+      />
     </>
   );
 };

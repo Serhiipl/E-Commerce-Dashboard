@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Modal } from "@/components/Modal";
 import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
 
 interface AlertModalProps {
   isOpen: boolean;
@@ -26,6 +27,7 @@ export const AlertModal: React.FC<AlertModalProps> = ({
   if (!isMounted) {
     return null;
   }
+
   return (
     <Modal
       title="Are you shure?"
