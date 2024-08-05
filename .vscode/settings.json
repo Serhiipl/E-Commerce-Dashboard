@@ -1,3 +1,11 @@
 {
-  "typescript.locale": "auto"
+  "typescript.locale": "auto",
+  "cSpell.words": [
+    "colums",
+    "Comfirm",
+    "hookform",
+    "lucide",
+    "nextjs",
+    "prismadb"
+  ]
 }
