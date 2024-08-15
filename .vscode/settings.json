@@ -1,6 +1,7 @@
 {
   "typescript.locale": "auto",
   "cSpell.words": [
+    "clsx",
     "colums",
     "Comfirm",
     "hookform",

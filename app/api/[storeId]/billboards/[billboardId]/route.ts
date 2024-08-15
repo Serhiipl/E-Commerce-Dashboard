@@ -20,7 +20,7 @@ export async function GET(
     return NextResponse.json(billboard);
   } catch (error) {
     console.log("[BILLBOARD_GET]", error);
-    return new NextResponse("Interlal error", { status: 500 });
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
 
@@ -70,7 +70,7 @@ export async function PATCH(
     return NextResponse.json(billboard);
   } catch (error) {
     console.log("[BILLBOARD_PATCH]", error);
-    return new NextResponse("Interlal error", { status: 500 });
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
 
@@ -109,6 +109,6 @@ export async function DELETE(
     return NextResponse.json(billboard);
   } catch (error) {
     console.log("[BILLBOARD_DELETE]", error);
-    return new NextResponse("Interlal error", { status: 500 });
+    return new NextResponse("Internal error", { status: 500 });
   }
 }

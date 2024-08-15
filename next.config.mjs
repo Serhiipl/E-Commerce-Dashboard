@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // images: {
+  //   domains: ["res.cloudinary.com"],
+  // },
   images: {
-    domains: ["res.cloudinary.com"], // або інші домени, з яких ти завантажуєш зображення
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
+    ],
   },
 };
 
